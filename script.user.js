@@ -59,7 +59,7 @@ function loadExtension() {
             console.log(yourScore + '-' + opponentScore);
             console.log('First turn: ' + firstPlayer);
 
-            window.prompt("Copy to clipboard: Ctrl+C, Enter", yourDeck + '|' + opponentDeck + '|' + yourScore + '|' + opponentScore + '|' + firstPlayer);
+            window.prompt("Copy to clipboard: Ctrl+C, Enter", player + '|' + yourDeck + '|' + opponentPlayer + '|' + opponentDeck + '|' + yourScore + '|' + opponentScore + '|' + firstPlayer);
         }
     }
 }
