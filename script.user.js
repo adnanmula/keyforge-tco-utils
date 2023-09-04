@@ -48,7 +48,7 @@ function loadExtension() {
             const yourDeckName = messages[0].children[2].innerText;
             const opponentDeck = messages[1].children[2].attributes.href.value.substring(34,70);
             const opponentDeckName = messages[1].children[2].innerText;
-            const firstPlayer = messages[2].children[0].innerText;
+            const firstPlayer = document.querySelectorAll('.other-player')[0].children[0].innerText.trim();
             const player = document.querySelectorAll('.player-info')[1].children[1].innerText;
             const opponentPlayer = document.querySelectorAll('.player-info')[0].children[1].innerText;
             const yourScore = document.querySelectorAll('.game-board > .panel.player-stats .state .forged-key').length;
