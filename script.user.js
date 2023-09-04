@@ -42,15 +42,24 @@ function loadExtension() {
         document.getElementById('addExtensionElementsButton').style.display = 'none';
 
         document.getElementById('copyGameToClipboard').onclick=function(){
-            const dokWeb = 'https://decksofkeyforge.com/decks/';
             const messages = document.querySelector('.messages.panel').children[0].children;
-            const yourDeck = messages[0].children[2].attributes.href.value.substring(34,70);
-            const yourDeckName = messages[0].children[2].innerText;
-            const opponentDeck = messages[1].children[2].attributes.href.value.substring(34,70);
-            const opponentDeckName = messages[1].children[2].innerText;
-            const firstPlayer = document.querySelectorAll('.other-player')[0].children[0].innerText.trim();
             const player = document.querySelectorAll('.player-info')[1].children[1].innerText;
             const opponentPlayer = document.querySelectorAll('.player-info')[0].children[1].innerText;
+
+            let yourDeckIndex = 0;
+            let opponentDeckIndex = 1;
+
+            if (messages[0].children[0].innerText.trim() === opponentPlayer) {
+                yourDeckIndex = 1;
+                opponentDeckIndex = 0;
+            }
+
+            const yourDeck = messages[yourDeckIndex].children[2].attributes.href.value.substring(34,70);
+            const yourDeckName = messages[yourDeckIndex].children[2].innerText;
+            const opponentDeck = messages[opponentDeckIndex].children[2].attributes.href.value.substring(34,70);
+            const opponentDeckName = messages[opponentDeckIndex].children[2].innerText;
+            const dokWeb = 'https://decksofkeyforge.com/decks/';
+            const firstPlayer = document.querySelectorAll('.other-player, .this-player')[0].children[0].innerText.trim();
             const yourScore = document.querySelectorAll('.game-board > .panel.player-stats .state .forged-key').length;
             const opponentScore = document.querySelectorAll('.stats-top .panel.player-stats .state .forged-key').length;
 
